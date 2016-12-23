@@ -1,0 +1,19 @@
+php_value display_errors On
+#php_value upload_tmp_dir "300M"
+#php_value post_max_size "300M"
+#php_value memory_limit "1000M"
+
+#Rewirte
+RewriteEngine On
+RewriteBase /
+
+#URL
+RewriteRule ^([^/]*)/request(/.*)? ?controller=SSO&action=request&product=$1&dir=$2&%{QUERY_STRING} [L]
+RewriteRule ^xampp(.*) xampp$1 [L]
+RewriteRule phpmyadmin(.*) phpmyadmin$1 [L]
+RewriteRule ^images/(.*) images/$1 [L]
+RewriteRule ^css/(.*) css/$1 [L]
+RewriteRule ^js/(.*) js/$1 [L]
+
+RewriteRule ^(.*)/(.*) ?controller=$1&action=$2&%{QUERY_STRING} [L]
+
